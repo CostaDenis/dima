@@ -1,11 +1,7 @@
-using Dima.Api.Common.Endpoints;
 using Dima.Api.Data;
+using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
-using Dima.Core.Enums;
 using Dima.Core.Handlers;
-using Dima.Core.Models;
-using Dima.Core.Requests.Categories;
-using Dima.Core.Responses;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +21,7 @@ builder.Services.AddSwaggerGen(x =>
 }); //Gera Html/Css/Js para API
 
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();//Dada a interface, esse vai ser o retorno
+builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
 var app = builder.Build();
 
 //Gera a tela do swagger

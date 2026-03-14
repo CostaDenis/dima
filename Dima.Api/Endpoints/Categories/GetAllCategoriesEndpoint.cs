@@ -6,7 +6,7 @@ using Dima.Core.Requests.Categories;
 using Dima.Core.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dima.Api.Common.Endpoints.Categories;
+namespace Dima.Api.Endpoints.Categories;
 
 public class GetAllCategoriesEndpoint : IEndpoint
 {

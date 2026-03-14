@@ -3,30 +3,31 @@ using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Requests.Categories;
 using Dima.Core.Responses;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Dima.Api.Common.Endpoints.Categories;
+namespace Dima.Api.Endpoints.Categories;
 
-public class DeleteCategoryEndpoint : IEndpoint
+public class GetCategoryByIdEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-        => app.MapDelete("/{id}", HandleAsync)
-            .WithName("Categories: Delete")
-            .WithSummary("Exclui categoria.")
-            .WithDescription("Exclui categoria.")
+        => app.MapGet("/{id}", HandleAsync)
+            .WithName("Categories: Get By Id")
+            .WithSummary("Recupera categoria.")
+            .WithDescription("Recupera categoria.")
             // .WithOrder(3)
             .Produces<Response<Category?>>();
 
     private static async Task<IResult> HandleAsync(
-        ICategoryHandler handler,
-        long id)
+        [FromServices] ICategoryHandler handler,
+        [FromRoute] long id)
     {
-        var request = new DeleteCategoryRequest
+        var request = new GetCategoryByIdRequest()
         {
             UserId = "TestUser",
             Id = id
         };
 
-        var result = await handler.DeleteAsync(request);
+        var result = await handler.GetByIdAsync(request);
 
         return result.IsSuccess
             ? TypedResults.Ok(result)

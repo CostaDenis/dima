@@ -1,24 +1,24 @@
 using Dima.Api.Common.Api;
 using Dima.Core.Handlers;
 using Dima.Core.Models;
-using Dima.Core.Requests.Categories;
+using Dima.Core.Requests.Transactions;
 using Dima.Core.Responses;
 
-namespace Dima.Api.Common.Endpoints.Categories;
+namespace Dima.Api.Endpoints.Transactions;
 
-public class CreateCategoryEndpoint : IEndpoint
+public class CreateTransactionEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
         => app.MapPost("", HandleAsync)
-            .WithName("Categories: Create")
-            .WithSummary("Cria uma nova categoria.")
-            .WithDescription("Cria uma nova categoria.")
+            .WithName("Transactions: Create")
+            .WithSummary("Cria uma nova transação.")
+            .WithDescription("Cria uma nova transação.")
             // .WithOrder(1)
-            .Produces<Response<Category?>>();
+            .Produces<Response<Transaction?>>();
 
     public static async Task<IResult> HandleAsync(
-        ICategoryHandler handler,
-        CreateCategoryRequest request)
+        ITransactionHandler handler,
+        CreateTransactionRequest request)
     {
         request.UserId = "TestUser";
         var result = await handler.CreateAsync(request);
