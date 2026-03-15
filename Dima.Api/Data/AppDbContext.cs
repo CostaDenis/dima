@@ -1,9 +1,21 @@
+using System.Reflection;
+using Dima.Api.Models;
 using Dima.Core.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dima.Api.Data;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options)
+    : IdentityDbContext<ApplicationUser
+        ,IdentityRole<long>
+        ,long
+        ,IdentityUserClaim<long>
+        ,IdentityUserRole<long>
+        ,IdentityUserLogin<long>
+        ,IdentityRoleClaim<long>
+        ,IdentityUserToken<long>>(options)
 {
 
     public DbSet<Transaction> Transactions { get; set; } = null!;
@@ -11,6 +23,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
