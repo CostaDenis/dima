@@ -1,5 +1,6 @@
 @page "/comecar"
 @layout HeadlessLayout
+@inherits RegisterPage
 
 <PageTitle>Dima - Registrar</PageTitle>
 
@@ -14,7 +15,7 @@
 
             </div>
 
-            <MudForm @ref="_mudForm">
+            <MudForm @ref="MudForm">
                 <MudTextField T="string" Label="Email" InputType="InputType.Email"
                               Placeholder="seu@email.com.br"
                               Required="true"
@@ -41,9 +42,3 @@
     </MudItem>
 
 </MudGrid>
-
-@code{
-
-    MudForm? _mudForm;
-
-}

@@ -1,5 +1,26 @@
-﻿<Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-    </Found>
-</Router>
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
+    
+        <Found Context="routeData">
+            
+            
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                
+                <NotAuthorized>
+                    <h1>Você não tem acesso à essa funcionalidade</h1>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+
+        </Found>
+        
+        <NotFoundPage>
+            <PageTitle>Not Found</PageTitle>
+            
+            <LayoutView Layout="@typeof(MainLayout)">
+                <h1>Erro 404</h1>    
+                <p>Página não encontrada</p>
+            </LayoutView>
+        </NotFoundPage>
+        
+    </Router>
+</CascadingAuthenticationState>
