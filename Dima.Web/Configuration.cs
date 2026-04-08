@@ -22,19 +22,20 @@ public static class Configuration
         PaletteLight = new PaletteLight
         {
             Primary = new MudColor("#1efa2d"), //Cor modificada
+            PrimaryContrastText = new MudColor("#000000"),
             Secondary = Colors.LightGreen.Darken3,
             Background = Colors.Gray.Lighten4,
             AppbarBackground = new MudColor("#1efa2d"),
             AppbarText = Colors.Shades.Black,
             TextPrimary = Colors.Shades.Black,
-            PrimaryContrastText = Colors.Shades.Black,
-            DrawerText = Colors.Shades.Black,
-            DrawerBackground = Colors.LightGreen.Lighten4
+            DrawerText = Colors.Shades.White,
+            DrawerBackground = Colors.Green.Darken4
         },
         //DarkMode
         PaletteDark = new PaletteDark()
         {
             Primary = Colors.LightGreen.Accent3,
+            PrimaryContrastText = new MudColor("#000000"),
             Secondary = Colors.LightGreen.Darken3,
             AppbarBackground = Colors.LightGreen.Accent3,
             AppbarText = Colors.Shades.Black
