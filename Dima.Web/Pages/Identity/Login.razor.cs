@@ -2,12 +2,11 @@
 using Dima.Core.Requests.Account;
 using Dima.Web.Security;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
 
 namespace Dima.Web.Pages.Identity;
 
-public partial class RegisterPage : ComponentBase
+public partial class LoginPage : ComponentBase
 {
     #region Dependencies
 
@@ -22,16 +21,16 @@ public partial class RegisterPage : ComponentBase
     
     [Inject]
     public ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
-    
-    #endregion
 
+    #endregion
+    
     #region Properties
 
     public bool IsBusy { get; set; } = false;
-    public RegisterRequest InputModel { get; set; } = new();
+    public LoginRequest InputModel { get; set; } = new();
 
     #endregion
-
+    
     #region Overrides
 
     protected override async Task OnInitializedAsync()
@@ -40,7 +39,7 @@ public partial class RegisterPage : ComponentBase
         var user = authState.User;
         
         if(user.Identity is { IsAuthenticated: true})
-            NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/"); 
     }
 
     #endregion
@@ -53,17 +52,17 @@ public partial class RegisterPage : ComponentBase
 
         try
         {
-            var result = await Handler.RegisterAsync(InputModel);
+            var result = await Handler.LoginAsync(InputModel);
 
             if (result.IsSuccess)
             {
-                Snackbar.Add(result.Message ?? "Sucesso", Severity.Success);
-                NavigationManager.NavigateTo("/login");
+                await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                AuthenticationStateProvider.NotifyAuthenticationStateChanged();
+                NavigationManager.NavigateTo("/");
             }
             else
-            {
                 Snackbar.Add(result.Message ?? "Erro", Severity.Error);
-            }
+            
         }
         catch (Exception e)
         {
@@ -77,3 +76,4 @@ public partial class RegisterPage : ComponentBase
     
     #endregion
 }
+

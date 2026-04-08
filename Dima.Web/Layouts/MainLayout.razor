@@ -4,23 +4,35 @@
 
 <MudSnackbarProvider />
 
-<MudLayout>
+<AuthorizeView>
+    <Authorized>
+        <MudLayout>
     
-    <MudAppBar>
-        Dima
+            <MudAppBar>
+                Dima
         
-        <MudSpacer />
-        
-        <MudSwitch @bind-Value="@_isDarkMode" />
-    </MudAppBar>
+                <MudSpacer />
+                
+                <MudText Typo="Typo.caption">
+                    @context.User.Identity?.Name
+                </MudText>
+                
+                <MudSwitch @bind-Value="@_isDarkMode" />
+            </MudAppBar>
     
-    <MudMainContent>
-        <MudContainer>
-            @Body
-        </MudContainer>
-    </MudMainContent>
+            <MudMainContent>
+                <MudContainer>
+                    @Body
+                </MudContainer>
+            </MudMainContent>
 
-</MudLayout>
+        </MudLayout>
+    </Authorized>
+    
+    <NotAuthorized>
+        <LoginRedirect /> 
+    </NotAuthorized>
+</AuthorizeView>
 
 @code{
 

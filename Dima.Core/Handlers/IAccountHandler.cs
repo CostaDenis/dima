@@ -5,7 +5,7 @@ namespace Dima.Core.Handlers;
 
 public interface IAccountHandler
 {
-    Task<Response<string>> LoginAsyc(LoginRequest request);
-    Task<Response<string>> RegisterAsyc(RegisterRequest request);
+    Task<Response<string>> LoginAsync(LoginRequest request);
+    Task<Response<string>> RegisterAsync(RegisterRequest request);
     Task LogoutAsync();
 }

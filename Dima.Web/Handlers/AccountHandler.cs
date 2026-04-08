@@ -10,7 +10,7 @@ public class AccountHandler(IHttpClientFactory httpClientFactory) : IAccountHand
 {
     private readonly HttpClient _client = httpClientFactory.CreateClient(Configuration.HttpClientName);
     
-    public async Task<Response<string>> LoginAsyc(LoginRequest request)
+    public async Task<Response<string>> LoginAsync(LoginRequest request)
     {
         var result = await _client
             .PostAsJsonAsync("v1/identity/login?useCookies=true", request);
@@ -20,7 +20,7 @@ public class AccountHandler(IHttpClientFactory httpClientFactory) : IAccountHand
             : new Response<string>(null, 400, "Usuário ou senha incorretos!");
     }
 
-    public async Task<Response<string>> RegisterAsyc(RegisterRequest request)
+    public async Task<Response<string>> RegisterAsync(RegisterRequest request)
     {
         var result = await _client
             .PostAsJsonAsync("v1/identity/register", request);

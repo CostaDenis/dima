@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\denis\\dev\\DotNet\\dima\\Dima.Api\\Dima.Api.csproj": {}
+    "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\Dima.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\denis\\dev\\DotNet\\dima\\Dima.Api\\Dima.Api.csproj": {
+    "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\Dima.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\denis\\dev\\DotNet\\dima\\Dima.Api\\Dima.Api.csproj",
+        "projectUniqueName": "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\Dima.Api.csproj",
         "projectName": "Dima.Api",
-        "projectPath": "C:\\Users\\denis\\dev\\DotNet\\dima\\Dima.Api\\Dima.Api.csproj",
+        "projectPath": "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\Dima.Api.csproj",
         "packagesPath": "C:\\Users\\denis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\denis\\dev\\DotNet\\dima\\Dima.Api\\obj\\",
+        "outputPath": "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -536,6 +537,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
