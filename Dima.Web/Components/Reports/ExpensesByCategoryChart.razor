@@ -1,0 +1,21 @@
+﻿@inherits ExpensesByCategoryChartComponent
+
+@if (Series.Count > 0)
+{
+    <MudChart T="double" ChartType="ChartType.Pie"
+              ChartSeries="@Series"
+              ChartLabels="@Labels.ToArray()"
+              Width="100%"
+              Height="350px"
+              />
+}
+else
+{
+    <div class="d-flex align-center justify-center" style="height: 350px">
+        
+        <MudProgressCircular 
+            Indeterminate="true"
+            Color="Color.Primary" />
+        
+    </div>
+}
