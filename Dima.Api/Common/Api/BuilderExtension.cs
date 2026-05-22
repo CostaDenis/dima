@@ -71,6 +71,9 @@ public static class BuilderExtension
     {
         builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();//Dada a interface, esse vai ser o retorno
         builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+        builder.Services.AddTransient<IProductHandler, ProductHandler>();
+        builder.Services.AddTransient<IVoucherHandler, VoucherHandler>();
+        builder.Services.AddTransient<IOrderHandler, OrderHandler>();
         builder.Services.AddTransient<IReportHandler, ReportHandler>();
     }
 }

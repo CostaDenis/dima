@@ -138,3 +138,7 @@ VALUES ('Presente de Aniversário', '2024-05-22', '2024-05-22', 2, -150.00, (SEL
 
 INSERT INTO [dbo].[Transactions] (Title, CreatedAt, PaidOrReceivedAt, Type, Amount, CategoryId, UserId)
 VALUES ('Bonificação', '2024-05-24', '2024-05-24', 1, 1200.00, (SELECT Id FROM [dbo].[Categories] WHERE Title='Investimentos'), 'teste@balta.io');
+
+INSERT INTO [Products] VALUES('Plano anual', 'Um ano de acesso a plataform', 'plano-anual', 1, 1.300);
+
+INSERT INTO [Vouchers] VALUES('1234ABCD', 'Voucher teste', 'Teste', 1, 79.9, null, null);
