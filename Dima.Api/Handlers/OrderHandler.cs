@@ -209,7 +209,7 @@ public class OrderHandler(AppDbContext context) : IOrderHandler
         return new Response<Order?>(order, 200, $"Pedido {order.Number} pago com sucesso!");
     }
 
-    public async Task<Response<Order?>> RefundAsync(RefoundOrderRequest request)
+    public async Task<Response<Order?>> RefundAsync(RefundOrderRequest request)
     {
         Order? order;
 

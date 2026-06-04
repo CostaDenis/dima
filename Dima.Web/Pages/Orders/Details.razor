@@ -1,0 +1,101 @@
+﻿@page "/pedidos/{number}"
+@inherits DetailsPage
+
+@if (Order is not null)
+{
+    <MudText>
+        Detalhes do pedido
+    </MudText>
+    <br/>
+
+    <MudText>
+        Número do pedido
+    </MudText>
+
+    <p>
+        @Order?.Number
+    </p>
+    <br/>
+
+    <MudText>
+        Data do pedido
+    </MudText>
+
+    <p>
+        @Order?.CreateAt.ToString("dd/MM/yyyy")
+    </p>
+    <br/>
+
+    <MudText>
+        Última atualização
+    </MudText>
+
+    <p>
+        @Order?.UpdatedAt.ToString("dd/MM/yyyy")
+    </p>
+    <br/>
+
+    <MudText>
+        Produto
+    </MudText>
+
+    <p>
+        @Order?.Product.Title
+    </p>
+    <br/>
+
+    <MudText>
+        Valor do produto
+    </MudText>
+
+    <p>
+        @Order?.Product.Price.ToString("C")
+    </p>
+    <br/>
+
+    <MudText>
+        Desconto
+    </MudText>
+
+    <p>
+        @(Order?.Voucher is null ? "Não aplicado"
+            : Order?.Voucher.Amount.ToString("C"))
+    </p>
+    <br/>
+
+    <MudText>
+        Valor total do pedido
+    </MudText>
+
+    <p>
+        @Order?.Total.ToString("C")
+    </p>
+    <br/>
+
+    <MudText>
+        Situação
+    </MudText>
+    
+    @if (Order is not null)
+    {
+        <OrderStatus Status="@Order.Status"/>
+    }
+    
+    
+    <br/>
+    <br/>
+    <br/>
+    
+    @if (Order is not null)
+    {
+        <CascadingValue Value="this">
+            <OrderAction Order="Order" />
+        </CascadingValue>
+    }
+}
+else
+{
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+}

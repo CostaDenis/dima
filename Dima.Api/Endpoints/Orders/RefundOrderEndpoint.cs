@@ -22,7 +22,7 @@ public class RefundOrderEndpoint : IEndpoint
         ClaimsPrincipal user
     )
     {
-        var request = new RefoundOrderRequest
+        var request = new RefundOrderRequest
         {
             Id = id,
             UserId = user.Identity?.Name ?? string.Empty

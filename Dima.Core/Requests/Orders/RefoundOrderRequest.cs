@@ -1,6 +1,6 @@
 ﻿namespace Dima.Core.Requests.Orders;
 
-public class RefoundOrderRequest : BaseRequest
+public class RefundOrderRequest : BaseRequest
 {
     public long Id { get; set; }
 }

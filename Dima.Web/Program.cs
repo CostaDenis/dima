@@ -7,6 +7,7 @@ using Dima.Web.Handlers;
 using Dima.Web.Security;
 using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor.Services;
+using Dima.Core.Models;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -22,19 +23,22 @@ builder.Services.AddAuthorizationCore();//Traz os recursos principais de autoriz
 
 builder.Services.AddScoped<AuthenticationStateProvider, CookieAuthenticationStateProvider>();
 
-builder.Services.AddScoped(x 
+builder.Services.AddScoped(x
     => (ICookieAuthenticationStateProvider)x.GetRequiredService<AuthenticationStateProvider>());
 
 builder.Services.AddMudServices();
 
 builder.Services.AddHttpClient(Configuration.HttpClientName, opt =>
 {
-    opt.BaseAddress = new (Configuration.BackendUrl);
+    opt.BaseAddress = new(Configuration.BackendUrl);
 }).AddHttpMessageHandler<CookieHandler>();
 
 //Sempre depender da abstração, e não da implementação
 builder.Services.AddTransient<IAccountHandler, AccountHandler>();
 builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+builder.Services.AddTransient<IVoucherHandler, VoucherHandler>();
+builder.Services.AddTransient<IProductHandler, ProductHandler>();
+builder.Services.AddTransient<IOrderHandler, OrderHandler>();
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<IReportHandler, ReportHandler>();
 
