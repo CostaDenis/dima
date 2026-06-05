@@ -1,0 +1,33 @@
+﻿@page "/pedidos/{number}/confirmar"
+@inherits ConfirmPage
+
+@if (Order is not null)
+{
+    
+    @if (Order.Status == EOrderStatus.Paid)
+    {
+        <MudText Typo="Typo.h1">
+            Pedido confirmado com sucesso!
+        </MudText>
+        
+        <MudText Typo="Typo.h2">
+            Parabéns, seu pedido confirmado com sucesso!
+        </MudText>
+    }
+    else
+    {
+        <MudText Typo="Typo.h1">
+            Ops, algo deu errado
+        </MudText>
+        
+        <MudText Typo="Typo.h2">
+            Receberá em breve novas informações no seu email!
+        </MudText>
+    }
+}
+else
+{
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+}

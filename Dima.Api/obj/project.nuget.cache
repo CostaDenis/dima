@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WoIoIVPVhe0=",
+  "dgSpecHash": "YSVp1VPlYCU=",
   "success": true,
   "projectFilePath": "C:\\Users\\denis\\dev\\DotNet\\dima\\dima.Api\\Dima.Api.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\denis\\.nuget\\packages\\microsoft.visualstudio.solutionpersistence\\1.0.52\\microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\stripe.net\\51.2.0\\stripe.net.51.2.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\swashbuckle.aspnetcore\\10.1.4\\swashbuckle.aspnetcore.10.1.4.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.1.4\\swashbuckle.aspnetcore.swagger.10.1.4.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.4\\swashbuckle.aspnetcore.swaggergen.10.1.4.nupkg.sha512",

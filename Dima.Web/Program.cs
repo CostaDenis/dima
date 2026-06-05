@@ -7,13 +7,15 @@ using Dima.Web.Handlers;
 using Dima.Web.Security;
 using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor.Services;
-using Dima.Core.Models;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 Configuration.BackendUrl = builder.Configuration.GetValue<string>("BackendUrl")
     ?? string.Empty;
+Configuration.StripePublicKey = builder.Configuration.GetValue<string>("StripePublicKey")
+                           ?? string.Empty;
 
+Console.WriteLine($"StripePublicKey: {Configuration.StripePublicKey}");
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
@@ -41,6 +43,7 @@ builder.Services.AddTransient<IProductHandler, ProductHandler>();
 builder.Services.AddTransient<IOrderHandler, OrderHandler>();
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<IReportHandler, ReportHandler>();
+builder.Services.AddTransient<IStripeHandler, StripeHandler>();
 
 //Habilita diferentes culturas no projeto
 builder.Services.AddLocalization();
